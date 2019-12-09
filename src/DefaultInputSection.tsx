@@ -5,9 +5,10 @@ export interface IDefaultInputSection {
   value: string;
   onChange: (value: string) => void;
   onDelete: () => void;
+  hideInput: (value: boolean) => void;
 }
 
-export default ({ value, onChange, onDelete }: IDefaultInputSection) => {
+export default ({ value, onChange, onDelete,hideInput  }: IDefaultInputSection) => {
   return (
     <div className="rp-default-input-section">
       <input
@@ -15,6 +16,7 @@ export default ({ value, onChange, onDelete }: IDefaultInputSection) => {
         placeholder="INPUT TAG HERE"
         value={value}
         onChange={e => onChange(e.target.value)}
+        onBlur={() => hideInput(false)}
       />
       <a className="rp-default-input-section_delete" onClick={() => onDelete()}>
         <DeleteButton />
