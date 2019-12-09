@@ -8,7 +8,7 @@ export interface IDefaultInputSection {
   hideInput: (value: boolean) => void;
 }
 
-export default ({ value, onChange, onDelete,hideInput  }: IDefaultInputSection) => {
+export default ({ value, onChange, onDelete, hideInput }: IDefaultInputSection) => {
   return (
     <div className="rp-default-input-section">
       <input
