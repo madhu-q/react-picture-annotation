@@ -18,7 +18,8 @@ interface IReactPictureAnnotationProps {
   inputElement: (
     value: string,
     onChange: (value: string) => void,
-    onDelete: () => void
+    onDelete: () => void,
+    hideInput: (toHide: boolean | null) => void
   ) => React.ReactElement;
 }
 
@@ -50,12 +51,14 @@ export default class ReactPictureAnnotation extends React.Component<
     inputElement: (
       value: string,
       onChange: (value: string) => void,
-      onDelete: () => void
+      onDelete: () => void,
+      hideInput: (value: boolean) => void
     ) => (
       <DefaultInputSection
         value={value}
         onChange={onChange}
         onDelete={onDelete}
+        hideInput={hideInput}
       />
     )
   };
@@ -166,7 +169,8 @@ export default class ReactPictureAnnotation extends React.Component<
             {inputElement(
               inputComment,
               this.onInputCommentChange,
-              this.onDelete
+              this.onDelete,
+              this.hideInput
             )}
           </div>
         )}
@@ -284,6 +288,13 @@ export default class ReactPictureAnnotation extends React.Component<
       this.onShapeChange();
     }
   };
+
+  private hideInput = (value : boolean) => {
+    this.setState({
+      showInput: value,
+      inputComment: ""
+    });
+  } 
 
   private setCanvasDPI = () => {
     const currentCanvas = this.canvasRef.current;
