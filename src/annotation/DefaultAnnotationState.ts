@@ -42,7 +42,7 @@ export class DefaultAnnotationState implements IAnnotationState {
         shapes.push(selectedShape);
         selectedShape.onDragStart(positionX, positionY);
         onShapeChange();
-        setState(new DraggingAnnotationState(this.context));
+        setState(new DraggingAnnotationState());
         return;
       }
     }
