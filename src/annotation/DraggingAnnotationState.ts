@@ -1,6 +1,6 @@
 import { ReactPictureAnnotation } from "index";
 import { IAnnotationState } from "./AnnotationState";
-import { DefaultAnnotationState } from "./DefaultAnnotationState";
+// import { DefaultAnnotationState } from "./DefaultAnnotationState";
 
 // export default class DraggingAnnotationState implements IAnnotationState {
 //   private context: ReactPictureAnnotation;
@@ -23,10 +23,10 @@ import { DefaultAnnotationState } from "./DefaultAnnotationState";
 // }
 
 export default class DraggingAnnotationState implements IAnnotationState {
-  private context: ReactPictureAnnotation;
-  constructor(context: ReactPictureAnnotation) {
-    this.context = context;
-  }
+//   private context: ReactPictureAnnotation;
+//   constructor(context: ReactPictureAnnotation) {
+//     this.context = context;
+//   }
   public onMouseDown = () => undefined;
   public onMouseMove = () => undefined;
 
