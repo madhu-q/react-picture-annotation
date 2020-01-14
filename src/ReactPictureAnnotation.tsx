@@ -146,7 +146,7 @@ export default class ReactPictureAnnotation extends React.Component<
     return (
       <div className="rp-stage">
         <canvas
-          style={{ width, height }}
+          style={{ width, height ,pointer-events: none;}}
           className="rp-image"
           ref={this.imageCanvasRef}
           width={width * 2}
@@ -154,7 +154,7 @@ export default class ReactPictureAnnotation extends React.Component<
         />
         <canvas
           className="rp-shapes"
-          style={{ width, height }}
+          style={{ width, height,pointer-events: none; }}
           ref={this.canvasRef}
           width={width * 2}
           height={height * 2}
