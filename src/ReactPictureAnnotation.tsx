@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+//import React, { MouseEventHandler } from "react";
 import { IAnnotation } from "./Annotation";
 import { IAnnotationState } from "./annotation/AnnotationState";
 import { DefaultAnnotationState } from "./annotation/DefaultAnnotationState";
@@ -81,9 +81,9 @@ export default class ReactPictureAnnotation extends React.Component<
   private imageCanvasRef = React.createRef<HTMLCanvasElement>();
   private imageCanvas2D?: CanvasRenderingContext2D | null;
   private currentImageElement?: HTMLImageElement;
-  private currentAnnotationState: IAnnotationState = new DefaultAnnotationState(
-    this
-  );
+//   private currentAnnotationState: IAnnotationState = new DefaultAnnotationState(
+//     this
+//   );
   private scaleState = defaultState;
 
   public componentDidMount = () => {
