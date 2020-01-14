@@ -40,7 +40,7 @@ export class DefaultAnnotationState implements IAnnotationState {
         this.context.currentTransformer = new Transformer(shapes[i]);
         const [selectedShape] = shapes.splice(i, 1);
         shapes.push(selectedShape);
-        selectedShape.onDragStart(positionX, positionY);
+        selectedShape.onDragStart();
         onShapeChange();
         setState(new DraggingAnnotationState());
         return;
