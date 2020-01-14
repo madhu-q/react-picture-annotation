@@ -1,4 +1,4 @@
-import { ReactPictureAnnotation } from "index";
+//import { ReactPictureAnnotation } from "index";
 import { IAnnotationState } from "./AnnotationState";
 // import { DefaultAnnotationState } from "./DefaultAnnotationState";
 
