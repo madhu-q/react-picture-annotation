@@ -36,8 +36,8 @@ export interface IRectShapeData extends IShapeData {
 }
 
 export interface IShape {
-  onDragStart: (positionX: number, positionY: number) => void;
-  onDrag: (positionX: number, positionY: number) => void;
+  onDragStart: () => void;
+  onDrag: () => void;
   checkBoundary: (positionX: number, positionY: number) => boolean;
   paint: (
     canvas2D: CanvasRenderingContext2D,
@@ -62,7 +62,7 @@ export class RectShape implements IShape {
     this.onChangeCallBack = onChange;
   }
 
-  public onDragStart = (positionX: number, positionY: number) => {
+  public onDragStart = () => {
     const { x, y } = this.annotationData.mark;
     this.dragStartOffset = {
       offsetX:  x,
@@ -70,7 +70,7 @@ export class RectShape implements IShape {
     };
   };
 
-  public onDrag = (positionX: number, positionY: number) => {
+  public onDrag = () => {
     this.annotationData.mark.x = this.dragStartOffset.offsetX;
     this.annotationData.mark.y = this.dragStartOffset.offsetY;
     this.onChangeCallBack();
