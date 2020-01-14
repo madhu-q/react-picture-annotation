@@ -1,4 +1,4 @@
-//import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler } from "react";
 import { IAnnotation } from "./Annotation";
 import { IAnnotationState } from "./annotation/AnnotationState";
 import { DefaultAnnotationState } from "./annotation/DefaultAnnotationState";
@@ -81,9 +81,9 @@ export default class ReactPictureAnnotation extends React.Component<
   private imageCanvasRef = React.createRef<HTMLCanvasElement>();
   private imageCanvas2D?: CanvasRenderingContext2D | null;
   private currentImageElement?: HTMLImageElement;
-//   private currentAnnotationState: IAnnotationState = new DefaultAnnotationState(
-//     this
-//   );
+  private currentAnnotationState: IAnnotationState = new DefaultAnnotationState(
+    this
+  );
   private scaleState = defaultState;
 
   public componentDidMount = () => {
@@ -158,10 +158,10 @@ export default class ReactPictureAnnotation extends React.Component<
           ref={this.canvasRef}
           width={width * 2}
           height={height * 2}
-          //onMouseDown={this.onMouseDown}
-          //onMouseMove={this.onMouseMove}
-          //onMouseUp={this.onMouseUp}
-          //onMouseLeave={this.onMouseLeave}
+            onMouseDown={this.onMouseDown}
+          onMouseMove={this.onMouseMove}
+          onMouseUp={this.onMouseUp}
+          onMouseLeave={this.onMouseLeave}
           //onWheel={this.onWheel}
         />
         {showInput && (
@@ -374,31 +374,31 @@ export default class ReactPictureAnnotation extends React.Component<
     }
   };
 
-//   private onMouseDown: MouseEventHandler<HTMLCanvasElement> = event => {
-//     const { offsetX, offsetY } = event.nativeEvent;
-//     const { positionX, positionY } = this.calculateMousePosition(
-//       offsetX,
-//       offsetY
-//     );
-//     this.currentAnnotationState.onMouseDown(positionX, positionY);
-//   };
+  private onMouseDown: MouseEventHandler<HTMLCanvasElement> = event => {
+    const { offsetX, offsetY } = event.nativeEvent;
+    const { positionX, positionY } = this.calculateMousePosition(
+      offsetX,
+      offsetY
+    );
+    this.currentAnnotationState.onMouseDown(positionX, positionY);
+  };
 
-//   private onMouseMove: MouseEventHandler<HTMLCanvasElement> = event => {
-//     const { offsetX, offsetY } = event.nativeEvent;
-//     const { positionX, positionY } = this.calculateMousePosition(
-//       offsetX,
-//       offsetY
-//     );
-//     this.currentAnnotationState.onMouseMove(positionX, positionY);
-//   };
+  private onMouseMove: MouseEventHandler<HTMLCanvasElement> = event => {
+    const { offsetX, offsetY } = event.nativeEvent;
+    const { positionX, positionY } = this.calculateMousePosition(
+      offsetX,
+      offsetY
+    );
+    this.currentAnnotationState.onMouseMove(positionX, positionY);
+  };
 
-//   private onMouseUp: MouseEventHandler<HTMLCanvasElement> = () => {
-//     this.currentAnnotationState.onMouseUp();
-//   };
+  private onMouseUp: MouseEventHandler<HTMLCanvasElement> = () => {
+    this.currentAnnotationState.onMouseUp();
+  };
 
-//   private onMouseLeave: MouseEventHandler<HTMLCanvasElement> = () => {
-//     this.currentAnnotationState.onMouseLeave();
-//   };
+  private onMouseLeave: MouseEventHandler<HTMLCanvasElement> = () => {
+    this.currentAnnotationState.onMouseLeave();
+  };
 
 //   private onWheel = (event: React.WheelEvent<HTMLCanvasElement>) => {
 //     // https://stackoverflow.com/a/31133823/9071503
