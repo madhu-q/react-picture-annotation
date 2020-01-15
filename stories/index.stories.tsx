@@ -27,6 +27,7 @@ storiesOf("Hello World", module)
             type: "RECT",
             width: 161,
             height: 165,
+            strokeColor:"234t",
             x: 229,
             y: 92
           }
