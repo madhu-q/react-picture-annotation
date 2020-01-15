@@ -13,6 +13,7 @@ export const shapeStyle = {
   shapeShadowStyle: "hsla(210, 9%, 31%, 0.35)"
 };
 
+
 export interface IShapeBase {
   x: number;
   y: number;
@@ -29,6 +30,7 @@ export interface IShapeAdjustBase {
 
 export interface IShapeData extends IShapeBase {
   type: string;
+  strokeColor:string;
 }
 
 export interface IRectShapeData extends IShapeData {
@@ -59,6 +61,7 @@ export class RectShape implements IShape {
 
   constructor(data: IAnnotation<IShapeData>, onChange: () => void) {
     this.annotationData = data;
+    console.log("this annotation adata for RecatPicture", this.annotationData)
     this.onChangeCallBack = onChange;
   }
 
@@ -97,14 +100,14 @@ export class RectShape implements IShape {
     calculateTruePosition: (shapeData: IShapeBase) => IShapeBase,
     selected: boolean
   ) => {
-    const { x, y, width, height } = calculateTruePosition(
+    const { x, y, width, height} = calculateTruePosition(
       this.annotationData.mark
     );
+    console.log("this.annotationData.mark  ...........",this.annotationData.mark.strokeColor)
     canvas2D.save();
-
     canvas2D.shadowBlur = 10;
     canvas2D.shadowColor = shapeStyle.shapeShadowStyle;
-    canvas2D.strokeStyle = shapeStyle.shapeStrokeStyle;
+    canvas2D.strokeStyle =this.annotationData.mark.strokeColor;
     canvas2D.lineWidth = 2;
     canvas2D.strokeRect(x, y, width, height);
     canvas2D.restore();
