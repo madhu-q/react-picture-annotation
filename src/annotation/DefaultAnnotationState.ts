@@ -55,6 +55,7 @@ export class DefaultAnnotationState implements IAnnotationState {
             y: positionY,
             width: 0,
             height: 0,
+            strokeColor:"",
             type: "RECT"
           }
         },
