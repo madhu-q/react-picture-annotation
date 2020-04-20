@@ -23,18 +23,18 @@
 .rp-image {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 139px;
   bottom: 0;
-  left: 139px;
+  left: 0;
   overflow: hidden;
 }
 
 .rp-shapes {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 139px;
   bottom: 0;
-  left: 139px;
+  left: 0;
 }
 
 .rp-selected-input {
